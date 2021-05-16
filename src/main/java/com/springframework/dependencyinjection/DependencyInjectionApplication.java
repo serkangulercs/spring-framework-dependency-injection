@@ -1,11 +1,14 @@
 package com.springframework.dependencyinjection;
 
+import com.springframework.dependencyinjection.config.DataSourceConfiguration;
 import com.springframework.dependencyinjection.controller.*;
 import com.springframework.dependencyinjection.service.PrototypeBean;
 import com.springframework.dependencyinjection.service.SingletonBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+
+import javax.xml.crypto.Data;
 
 @SpringBootApplication
 public class DependencyInjectionApplication {
@@ -53,6 +56,13 @@ public class DependencyInjectionApplication {
 		System.out.println(prototypeBean1.getMyScope());
 		PrototypeBean prototypeBean2 = ctx.getBean(PrototypeBean.class);
 		System.out.println(prototypeBean2.getMyScope());
+
+		System.out.println("-------- Configuration Properties");
+		DataSourceConfiguration dataSourceConfiguration
+				= ctx.getBean(DataSourceConfiguration.class);
+		System.out.println(dataSourceConfiguration.getUsername());
+		System.out.println(dataSourceConfiguration.getPassword());
+		System.out.println(dataSourceConfiguration.getEndpoint());
 	}
 
 }
