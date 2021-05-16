@@ -40,7 +40,6 @@ public class DependencyInjectionApplication {
 				(ConstructorInjectedController) ctx.getBean("constructorInjectedController");
 
 		System.out.println(constructorInjectedController.getGreeting());
-
 	}
 
 }
